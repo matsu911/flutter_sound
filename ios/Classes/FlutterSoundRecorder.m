@@ -332,10 +332,10 @@ extern void FlautoRecorderReg(NSObject<FlutterPluginRegistrar>* registrar)
                 setActiveDone = FOR_RECORDING;
         }
 
-    
-          // set volume default to speaker
-          UInt32 doChangeDefaultRoute = 1;
-          AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
+
+          // // set volume default to speaker
+          // UInt32 doChangeDefaultRoute = 1;
+          // AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
 
           // set up for bluetooth microphone input
           UInt32 allowBluetoothInput = 1;
