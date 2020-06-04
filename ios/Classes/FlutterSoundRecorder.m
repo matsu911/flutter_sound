@@ -124,7 +124,7 @@ extern void FlautoRecorderReg(NSObject<FlutterPluginRegistrar>* registrar)
                  [flautoRecorderSlots addObject: [NSNull null] ];
         }
         FlutterSoundRecorder* aFlautoRecorder = flautoRecorderSlots[slotNo];
-        
+
         if ([@"initializeFlautoRecorder" isEqualToString:call.method])
         {
                 assert (flautoRecorderSlots[slotNo] ==  [NSNull null] );
@@ -132,56 +132,56 @@ extern void FlautoRecorderReg(NSObject<FlutterPluginRegistrar>* registrar)
                 flautoRecorderSlots[slotNo] =aFlautoRecorder;
                 [aFlautoRecorder initializeFlautoRecorder: call result:result];
         } else
-         
+
         if ([@"releaseFlautoRecorder" isEqualToString:call.method])
         {
                 [aFlautoRecorder releaseFlautoRecorder:call result:result];
         } else
-         
+
         if ([@"isEncoderSupported" isEqualToString:call.method])
         {
                 NSNumber* codec = (NSNumber*)call.arguments[@"codec"];
                 [aFlautoRecorder isEncoderSupported:[codec intValue] result:result];
         } else
-        
+
         if ([@"startRecorder" isEqualToString:call.method])
         {
                      [aFlautoRecorder startRecorder:call result:result];
         } else
-        
+
         if ([@"stopRecorder" isEqualToString:call.method])
         {
                 [aFlautoRecorder stopRecorder: result];
         } else
-        
+
         if ([@"setDbPeakLevelUpdate" isEqualToString:call.method])
         {
                 NSNumber* intervalInSecs = (NSNumber*)call.arguments[@"intervalInSecs"];
                 [aFlautoRecorder setDbPeakLevelUpdate:[intervalInSecs doubleValue] result:result];
         } else
-        
+
         if ([@"setDbLevelEnabled" isEqualToString:call.method])
         {
                 BOOL enabled = [call.arguments[@"enabled"] boolValue];
                 [aFlautoRecorder setDbLevelEnabled:enabled result:result];
         } else
-        
+
         if ([@"setSubscriptionDuration" isEqualToString:call.method])
         {
                 NSNumber* sec = (NSNumber*)call.arguments[@"sec"];
                 [aFlautoRecorder setSubscriptionDuration:[sec doubleValue] result:result];
         } else
-        
+
         if ([@"pauseRecorder" isEqualToString:call.method])
         {
                 [aFlautoRecorder pauseRecorder:call result:result];
         } else
-        
+
         if ([@"resumeRecorder" isEqualToString:call.method])
         {
                 [aFlautoRecorder resumeRecorder:call result:result];
         } else
-        
+
         {
                 result(FlutterMethodNotImplemented);
         }
@@ -319,8 +319,8 @@ extern void FlautoRecorderReg(NSObject<FlutterPluginRegistrar>* registrar)
                 AVAudioSession *session = [AVAudioSession sharedInstance];
                 [session
                         setCategory:AVAudioSessionCategoryRecord
-                        mode:AVAudioSessionModeDefault
-                        options: AVAudioSessionCategoryOptionDefaultToSpeaker
+                        // mode:AVAudioSessionModeDefault
+                        // options: AVAudioSessionCategoryOptionDefaultToSpeaker
                         error:nil];
                 setCategoryDone = FOR_RECORDING;
           }
@@ -489,4 +489,3 @@ extern void FlautoRecorderReg(NSObject<FlutterPluginRegistrar>* registrar)
 
 
 //---------------------------------------------------------------------------------------------
-
