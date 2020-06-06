@@ -318,9 +318,9 @@ extern void FlautoRecorderReg(NSObject<FlutterPluginRegistrar>* registrar)
           {
                 AVAudioSession *session = [AVAudioSession sharedInstance];
                 [session
-                        setCategory:AVAudioSessionCategoryRecord
+                        setCategory:AVAudioSessionCategoryPlayAndRecord
                         // mode:AVAudioSessionModeDefault
-                        // options: AVAudioSessionCategoryOptionDefaultToSpeaker
+                        options: AVAudioSessionCategoryOptionDefaultToSpeaker|AVAudioSessionCategoryOptionMixWithOthers
                         error:nil];
                 setCategoryDone = FOR_RECORDING;
           }
